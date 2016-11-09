@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Faker::Config.locale = 'fr'
+
+Restaurant.destroy_all
+
+Restaurant.create({
+  name: "L'évidence café !",
+  address: "119 quai des Chartrons, 33300 Bordeaux",
+  phone_number: "05 33 48 11 65",
+  category: "french"
+})
+
+7.times do
+  Restaurant.create({
+    name: Faker::Company.name,
+    address: "#{Faker::Address.street_address}, #{Faker::Address.zip_code} #{Faker::Address.city}",
+    phone_number: Faker::PhoneNumber.phone_number,
+    category: ["chinese", "italian", "japanese", "french", "belgian"][rand(5)]
+    })
+end

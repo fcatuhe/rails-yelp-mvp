@@ -1,0 +1,3 @@
+<% @restaurants.each do |restaurant| %>
+    <h3><strong><%= link_to restaurant.name, restaurant_path(restaurant) %></strong> <%= restaurant.category.capitalize %> food <%= restaurant.stars %></h3>
+<% end %>
