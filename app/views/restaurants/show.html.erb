@@ -11,4 +11,10 @@
   </li>
 <% end %>
 </ul>
-<%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h4>Add a review</h4>
+    <%= render '/reviews/form' %>
+  </div>
+</div>
