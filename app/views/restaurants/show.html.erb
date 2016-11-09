@@ -1,21 +1,27 @@
+<% content_for :title do %>
+  <%=raw @restaurant.name %>
+<% end %>
+
 <h2><%= @restaurant.name %> <%= @restaurant.stars %></h2>
 <p><%= @restaurant.category.capitalize %> food</p>
 <p><%= @restaurant.address %></p>
 <p><%= @restaurant.phone_number %></p>
 
 <h3>Reviews</h3>
-<ul>
-<% @restaurant.reviews.each do |review| %>
-  <% if review.persisted? %>
-    <li>
-      <%= review.content %> <%= review.stars %>
-    </li>
-  <% end %>
-<% end %>
-</ul>
-
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-7">
+    <ul>
+    <% @restaurant.reviews.each do |review| %>
+      <% if review.persisted? %>
+        <li>
+          <%= review.content %> <%= review.stars %>
+        </li>
+      <% end %>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="col-sm-5">
     <h4>Add a review</h4>
     <%= render '/reviews/form' %>
   </div>
